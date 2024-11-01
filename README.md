@@ -1,4 +1,12 @@
-# -- coding: utf-8 --**
+import telebot
+
+bot = telebot.TeleBot('7248753127:AAHas3gqEpInSOU9cHIu66hA4AgP8pxYYxc')
+
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    bot.reply_to(message, message.text)
+
+bot.polling()
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import create_deep_linked_url
 from telegram.ext.commandhandler import CommandHandler
